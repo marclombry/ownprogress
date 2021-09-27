@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\ExerciceRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -42,6 +44,16 @@ class Exercice
      * @ORM\JoinColumn(nullable=false)
      */
     private $categories;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=Training::class, mappedBy="exercice")
+     */
+    private $trainings;
+
+    public function __construct()
+    {
+        $this->trainings = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -104,6 +116,33 @@ class Exercice
     public function setCategories(?Category $categories): self
     {
         $this->categories = $categories;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Training[]
+     */
+    public function getTrainings(): Collection
+    {
+        return $this->trainings;
+    }
+
+    public function addTraining(Training $training): self
+    {
+        if (!$this->trainings->contains($training)) {
+            $this->trainings[] = $training;
+            $training->addExercice($this);
+        }
+
+        return $this;
+    }
+
+    public function removeTraining(Training $training): self
+    {
+        if ($this->trainings->removeElement($training)) {
+            $training->removeExercice($this);
+        }
 
         return $this;
     }
