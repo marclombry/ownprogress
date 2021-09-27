@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
@@ -41,6 +43,16 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * @ORM\Column(type="boolean")
      */
     private $isVerified = false;
+
+    /**
+     * @ORM\OneToMany(targetEntity=training::class, mappedBy="user")
+     */
+    private $training;
+
+    public function __construct()
+    {
+        $this->training = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -139,6 +151,36 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setIsVerified(bool $isVerified): self
     {
         $this->isVerified = $isVerified;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|training[]
+     */
+    public function getTraining(): Collection
+    {
+        return $this->training;
+    }
+
+    public function addTraining(training $training): self
+    {
+        if (!$this->training->contains($training)) {
+            $this->training[] = $training;
+            $training->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeTraining(training $training): self
+    {
+        if ($this->training->removeElement($training)) {
+            // set the owning side to null (unless already changed)
+            if ($training->getUser() === $this) {
+                $training->setUser(null);
+            }
+        }
 
         return $this;
     }

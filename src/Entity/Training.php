@@ -39,6 +39,11 @@ class Training
      */
     private $date_training;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="training")
+     */
+    private $user;
+
     public function __construct()
     {
         $this->exercice = new ArrayCollection();
@@ -105,6 +110,18 @@ class Training
     public function setDateTraining(?\DateTimeInterface $date_training): self
     {
         $this->date_training = $date_training;
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
 
         return $this;
     }
