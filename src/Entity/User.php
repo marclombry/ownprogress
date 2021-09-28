@@ -2,13 +2,14 @@
 
 namespace App\Entity;
 
-use App\Repository\UserRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
+use App\Entity\Training;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\UserRepository;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
-use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
@@ -45,7 +46,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private $isVerified = false;
 
     /**
-     * @ORM\OneToMany(targetEntity=training::class, mappedBy="user")
+     * @ORM\OneToMany(targetEntity=Training::class, mappedBy="user")
      */
     private $training;
 
@@ -156,14 +157,14 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     }
 
     /**
-     * @return Collection|training[]
+     * @return Collection|Training[]
      */
     public function getTraining(): Collection
     {
         return $this->training;
     }
 
-    public function addTraining(training $training): self
+    public function addTraining(Training $training): self
     {
         if (!$this->training->contains($training)) {
             $this->training[] = $training;
@@ -173,7 +174,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    public function removeTraining(training $training): self
+    public function removeTraining(Training $training): self
     {
         if ($this->training->removeElement($training)) {
             // set the owning side to null (unless already changed)
@@ -183,5 +184,10 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         }
 
         return $this;
+    }
+
+    public function __toString()
+    {
+        return $this->email;
     }
 }

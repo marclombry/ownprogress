@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\TrainingRepository;
+use DateTime;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -18,11 +19,6 @@ class Training
      * @ORM\Column(type="integer")
      */
     private $id;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $days;
 
     /**
      * @ORM\Column(type="boolean", nullable=true)
@@ -52,18 +48,6 @@ class Training
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function getDays(): ?string
-    {
-        return $this->days;
-    }
-
-    public function setDays(string $days): self
-    {
-        $this->days = $days;
-
-        return $this;
     }
 
     public function getIsRealized(): ?bool
@@ -104,6 +88,7 @@ class Training
 
     public function getDateTraining(): ?\DateTimeInterface
     {
+        if(!$this->date_training) $this->date_training = new \Datetime('now');
         return $this->date_training;
     }
 
