@@ -1,3 +1,9 @@
+@import '_init.scss';
+@import '_color.scss';
+@import '_text.scss';
+@import '_partial.scss';
 body {
-    background-color: rgb(255, 168, 97);
+    @include theme($primary-bgcolor,$primary-color,$primary-font,$primary-size);
+
 }
+
