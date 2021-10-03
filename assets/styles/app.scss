@@ -1,0 +1,9 @@
+@import '_init.scss';
+@import '_color.scss';
+@import '_text.scss';
+@import '_partial.scss';
+body {
+    @include theme($primary-bgcolor,$primary-color,$primary-font,$primary-size);
+
+}
+

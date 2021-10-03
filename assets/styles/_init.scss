@@ -1,0 +1,7 @@
+// mixin
+@mixin theme($bgcolor,$color,$font,$size) {
+    background: $bgcolor;
+    color:$color;
+    font-family: $font;
+    font-size: $size;
+}
