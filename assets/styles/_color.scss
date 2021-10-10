@@ -1,5 +1,198 @@
+:root {
+	--emerald:#2ecc71;/* green */
+	--turquoise:#1abc9c;/* green */ 
+	--peter-river:#3498db;/* blue */
+	--amethyst:#9b59b6;/* purple */
+	--wet-asphalt:#34495e;/* black */
+	--green-sea:#16a085;/* green */
+	--nephritis:#27ae60;/* green */
+	--belize-hole:#2980b9;/* blue */
+	--wisteria:#8e44ad;/* purple */
+	--midnight-blue:#2c3e50;/* black */
+	--sun-flower:#f1c40f;/* yellow */
+	--carrot:#e67e22;/* orange */
+	--alizarin:#e74c3c;/* red */
+	--cloud:#ecf0f1;/* white */
+	--concrete:#95a5a6;/* grey */
+	--orange:#f39c12;/* orange */
+	--pumpkin:#d35400;/* orange */
+	--pomegranate:#c0392b;/* red */
+	--silver:#bdc3c7;/* grey */
+	--asbestos:#7f8c8d;/* grey */
+
+	--flat-flesh:#fad390;/* yellow */
+	--melon-melody:#f8c291;/* beige */
+	--livid:#6a89cc;/* blue */
+	--spray:#82ccdd;/* blue */
+	--paradise-green:#b8e994;/* green */
+	--squash-blossom:#f6b93b;/* yellow */
+	--mandarin-red:#e55039;/* red */
+	--azraq-blue:#4a69bd;/* blue */
+	--dupain:#4a69bd;/* blue */
+	--aurora-green:#78e08f;/* green */
+	--iceland-poppy:#fa983a;/* orange */
+	--tomato-red:#eb2f06;/* red */
+	--yue-guang-lan-blue:#1e3799;/* blue */
+	--good-samaritan:#3c6382;/* blue */
+	--waterfall:#3c6382;/* blue */
+	--carrot-orange:#e58e26;/* orange */
+	--jalapeno-red:#b71540;/* red */
+	--dark-sapphire:#0c2461;/* blue */
+	--forest-blues:#0a3d62;/* blue */
+	--reef-encounter:#079992;/* blue */
+
+	--energos:#C4E538;/* green */
+	--blue-martina:#12CBC4;/* blue */
+	--lavender-rose:#FDA7DF;/* pink */
+	--bara-red:#ED4C67;/* pink */
+	--radiant-yellow:#F79F1F;/* orange */
+	--android-green:#A3CB38;/* green */
+	--mediterranean-sea:#1289A7;/* blue */
+	--lavender-tea:#D980FA;/* pink */
+	--very-berry:#B53471;/* purple */
+	--puffins-bill:#EE5A24;/* orange */
+	--pixelated-grass:#009432;/* green */
+	--merchant-marine-blue:#0652DD;/* blue */
+	--forgotten-purple:#9980FA;/* purple */
+	--hollyhock:#833471;/* purple */
+	--red-piment:#EA2027;/* red */
+	--turkish-aqua:#006266;/* blue */
+	--under-the-sea:#1B1464;/* blue*/
+	--circumorbital-ring:#5758BB;/* purple */
+	--magenta-purple:#6F1E51;/* purple */
+	--dracula-orchid:#2d3436;/*black*/
+
+}
+
+.bg-emerald{background-color:var(--emerald);}/* green */
+.bg-turquoise{background-color:var(--turquoise);}/* green */ 
+.bg-peter-river{background-color:var(--peter-river);}/* blue */
+.bg-amethyst{background-color:var(--amethyst);}/* purple */
+.bg-wet-asphalt{background-color:var(--wet-asphalt);}/* black */
+.bg-green-sea{background-color:var(--green-sea);}/* green */
+.bg-nephritis{background-color:var(--nephritis);}/* green */
+.bg-belize-hole{background-color:var(--belize-hole);}/* blue */
+.bg-wisteria{background-color:var(--wisteria);}/* purple */
+.bg-midnight-blue{background-color:var(--midnight-blue);}/* black */
+.bg-sun-flower{background-color:var(--sun-flower);}/* yellow */
+.bg-carrot{background-color:var(--carrot);}/* orange */
+.bg-alizarin{background-color:var(--alizarin);}/* red */
+.bg-cloud{background-color:var(--cloud);}/* white */
+.bg-concrete{background-color:var(--concrete);}/* grey */
+.bg-orange{background-color:var(--orange);}/* orange */
+.bg-pumpkin{background-color:var(--pumpkin);}/* orange */
+.bg-pomegranate{background-color:var(--pomegranate);}/* red */
+.bg-silver{background-color:var(--silver);}/* grey */
+.bg-asbestos{background-color:var(--asbestos);}/* grey */
+.bg-flat-flesh{background-color:var(--flat-flesh);}/* yellow */
+.bg-melon-melody{background-color:var(--melon-melody);}/* beige */
+.bg-livid{background-color:var(--livid);}/* blue */
+.bg-spray{background-color:var(--spray);}/* blue */
+.bg-paradise-green{background-color:var(--paradise-green);}/* green */
+.bg-squash-blossom{background-color:var(--squash-blossom);}/* yellow */
+.bg-mandarin-red{background-color:var(--mandarin-red);}/* red */
+.bg-azraq-blue{background-color:var(--azraq-blue);}/* blue */
+.bg-dupain{background-color:var(--dupain);}/* blue */
+.bg-aurora-green{background-color:var(--aurora-green);}/* green */
+.bg-iceland-poppy{background-color:var(--iceland-poppy);}/* orange */
+.bg-tomato-red{background-color:var(--tomato-red);}/* red */
+.bg-yue-guang-lan-blue{background-color:var(--yue-guang-lan-blue);}/* blue */
+.bg-good-samaritan{background-color:var(--good-samaritan);}/* blue */
+.bg-waterfall{background-color:var(--waterfall);}/* blue */
+.bg-carrot-orange{background-color:var(--carrot-orange);}/* orange */
+.bg-jalapeno-red{background-color:var(--jalapeno-red);}/* red */
+.bg-dark-sapphire{background-color:var(--dark-sapphire);}/* blue */
+.bg-forest-blues{background-color:var(--forest-blues);}/* blue */
+.bg-reef-encounter{background-color:var(--reef-encounter);}/* blue */
+.bg-energos{background-color:var(--energos);}
+.bg-blue-martina{background-color:var(--blue-martina);}
+.bg-lavender-rose{background-color:var(--lavender-rose);}
+.bg-bara-red{background-color:var(--bara-red);}
+.bg-radiant-yellow{background-color:var(--radiant-yellow);}
+.bg-android-green{background-color:var(--android-green);}
+.bg-mediterranean{background-color:var(--mediterranean);}
+.bg-lavender-tea{background-color:var(--lavender-tea);}
+.bg-very-berry{background-color:var(--very-berry);}
+.bg-puffins-bill{background-color:var(--puffins-bill);}
+.bg-pixelated-grass{background-color:var(--pixelated-grass);}
+.bg-merchant-marine-blue{background-color:var(--merchant-marine-blue);}
+.bg-forgotten-purple{background-color:var(--forgotten-purple);}
+.bg-hollyhock{background-color:var(--hollyhock);}
+.bg-red-piment{background-color:var(--red-piment);}
+.bg-turkish-aqua{background-color:var(--turkish-aqua);}
+.bg-under-the-sea{background-color:var(--under-the-sea);}
+.bg-circumorbital-ring{background-color:var(--circumorbital-ring);}
+.bg-magenta-purple{background-color:var(--magenta-purple);}
+.bg-dracula-orchid{background-color:var(--dracula-orchid);}
+.bg-black{background-color:black;}
+.bg-white{background-color:white;}
+.bg-sky-gradient{background: linear-gradient(#5b8493, #9198e5);}
+
+/*color*/
+.emerald{color:var(--emerald);}/* green */
+.turquoise{color:var(--turquoise);}/* green */ 
+.peter-river{color:var(--peter-river);}/* blue */
+.amethyst{color:var(--amethyst);}/* purple */
+.wet-asphalt{color:var(--wet-asphalt);}/* black */
+.green-sea{color:var(--green-sea);}/* green */
+.nephritis{color:var(--nephritis);}/* green */
+.belize-hole{color:var(--belize-hole);}/* blue */
+.wisteria{color:var(--wisteria);}/* purple */
+.midnight-blue{color:var(--midnight-blue);}/* black */
+.sun-flower{color:var(--sun-flower);}/* yellow */
+.carrot{color:var(--carrot);}/* orange */
+.alizarin{color:var(--alizarin);}/* red */
+.cloud{color:var(--cloud);}/* white */
+.concrete{color:var(--concrete);}/* grey */
+.orange{color:var(--orange);}/* orange */
+.pumpkin{color:var(--pumpkin);}/* orange */
+.pomegranate{color:var(--pomegranate);}/* red */
+.silver{color:var(--silver);}/* grey */
+.asbestos{color:var(--asbestos);}/* grey */
+.flat-flesh{color:var(--flat-flesh);}/* yellow */
+.melon-melody{color:var(--melon-melody);}/* beige */
+.livid{color:var(--livid);}/* blue */
+.spray{color:var(--spray);}/* blue */
+.paradise-green{color:var(--paradise-green);}/* green */
+.squash-blossom{color:var(--squash-blossom);}/* yellow */
+.mandarin-red{color:var(--mandarin-red);}/* red */
+.azraq-blue{color:var(--azraq-blue);}/* blue */
+.dupain{color:var(--dupain);}/* blue */
+.aurora-green{color:var(--aurora-green);}/* green */
+.iceland-poppy{color:var(--iceland-poppy);}/* orange */
+.tomato-red{color:var(--tomato-red);}/* red */
+.yue-guang-lan-blue{color:var(--yue-guang-lan-blue);}/* blue */
+.good-samaritan{color:var(--good-samaritan);}/* blue */
+.waterfall{color:var(--waterfall);}/* blue */
+.carrot-orange{color:var(--carrot-orange);}/* orange */
+.jalapeno-red{color:var(--jalapeno-red);}/* red */
+.dark-sapphire{color:var(--dark-sapphire);}/* blue */
+.forest-blues{color:var(--forest-blues);}/* blue */
+.reef-encounter{color:var(--reef-encounter);}/* blue */
+.energos{color:var(--energos);}
+.blue-martina{color:var(--blue-martina);}
+.lavender-rose{color:var(--lavender-rose);}
+.bara-red{color:var(--bara-red);}
+.radiant-yellow{color:var(--radiant-yellow);}
+.android-green{color:var(--android-green);}
+.mediterranean{color:var(--mediterranean);}
+.lavender-tea{color:var(--lavender-tea);}
+.very-berry{color:var(--very-berry);}
+.puffins-bill{color:var(--puffins-bill);}
+.pixelated-grass{color:var(--pixelated-grass);}
+.merchant-marine-blue{color:var(--merchant-marine-blue);}
+.forgotten-purple{color:var(--forgotten-purple);}
+.hollyhock{color:var(--hollyhock);}
+.red-piment{color:var(--red-piment);}
+.turkish-aqua{color:var(--turkish-aqua);}
+.under-the-sea{color:var(--under-the-sea);}
+.circumorbital-ring{color:var(--circumorbital-ring);}
+.magenta-purple{color:var(--magenta-purple);}
+.dracula-orchid{color:var(--dracula-orchid);}
+.black{color:black;}
+.white{color:white;}
 // bg color
-$primary-bgcolor: #f1deff;
+$primary-bgcolor: var(--radiant-yellow);
 $secondary-bgcolor: #222;
 
 // color

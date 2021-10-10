@@ -3,7 +3,6 @@
 @import '_text.scss';
 @import '_partial.scss';
 body {
-    @include theme($primary-bgcolor,$primary-color,$primary-font,$primary-size);
-
+    // @include theme($primary-bgcolor,$primary-color,$primary-font,$primary-size);
+    
 }
-
