@@ -3,8 +3,8 @@
 {% block title %}Training{% endblock %}
 
 {% block body %}
-    <h1>Training</h1>
-    <table class="table">
+    <h1 class="title">Training</h1>
+    <table class="table table-theme">
         <tbody>
             <tr>
                 <th>Id</th>
@@ -16,7 +16,7 @@
             </tr>
             <tr>
                 <th>Date_training</th>
-                <td>{{ training.dateTraining ? training.dateTraining|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ training.dateTraining ? training.dateTraining|date('d-m-Y') : '' }}</td>
             </tr>
             <tr>
                 <th>Exercice</th>
@@ -27,10 +27,10 @@
             </tr>
         </tbody>
     </table>
-
-    <a href="{{ path('training_index') }}">back to list</a>
-
-    <a href="{{ path('training_edit', {'id': training.id}) }}">edit</a>
+    <div class="d-flex">
+    <p class="text-center p-4"><a class="btn bg-color" href="{{ path('training_index') }}">Back to list <i class="fas fa-hand-point-left"></i></a></p>
+    <p class="text-center p-4"><a class="btn bg-color" href="{{ path('training_edit', {'id': training.id}) }}">edit <i class="fas fa-pen-alt"></i></a></p>
 
     {{ include('training/_delete_form.html.twig') }}
+    </div>
 {% endblock %}

@@ -3,9 +3,10 @@
 {% block title %}New Training{% endblock %}
 
 {% block body %}
-    <h1>Create new Training</h1>
+    <h1 class="title">Create new Training</h1>
 
     {{ include('training/_form.html.twig') }}
 
-    <a href="{{ path('training_index') }}">back to list</a>
+    <p class="text-center m-4"><a class="btn bg-color" href="{{ path('training_index') }}">Back to list <i class="fas fa-hand-point-left"></i></a></p>
+
 {% endblock %}

@@ -1,3 +1,22 @@
-<footer>
-    footer
+<footer class="footer">
+    <div class="network">
+        <p class="f-icon">
+            <span style="font-size: 48px; color: Dodgerblue;">
+                <a href="https://www.linkedin.com/in/marc-lombry-718207122/?originalSubdomain=fr">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+            </span>
+        </p>
+        <p class="f-icon">
+            <span style="font-size: 48px; color: Dodgerblue;">
+                <a class="dracula-orchid" href="https://github.com/marclombry">
+                    <i class="fab fa-github-square"></i>
+                </a>
+            </span>
+        </p>
+    </div>
+    <div class="copyright">
+    {% set date = date('Y')%}
+        <div class="text-center text-bold">@copyright marc lombry 2021 - {{ date|date('Y')}}</div>
+    </div>
 </footer>
