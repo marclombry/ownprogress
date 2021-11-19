@@ -56,7 +56,7 @@ class TrainingController extends AbstractController
      */
     public function show(Training $training): Response
     {
-        $this->denyAccessUnlessGranted('view',$training);
+        $this->denyAccessUnlessGranted('view', $training);
 
         return $this->render('training/show.html.twig', [
             'training' => $training,
@@ -68,7 +68,7 @@ class TrainingController extends AbstractController
      */
     public function edit(Request $request, Training $training): Response
     {
-        $this->denyAccessUnlessGranted('view',$training);
+        $this->denyAccessUnlessGranted('view', $training);
 
         $form = $this->createForm(TrainingType::class, $training);
         $form->handleRequest($request);
@@ -90,9 +90,9 @@ class TrainingController extends AbstractController
      */
     public function delete(Request $request, Training $training): Response
     {
-        $this->denyAccessUnlessGranted('view',$training);
+        $this->denyAccessUnlessGranted('view', $training);
 
-        if ($this->isCsrfTokenValid('delete'.$training->getId(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete' . $training->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($training);
             $entityManager->flush();

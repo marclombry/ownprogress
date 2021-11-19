@@ -26,7 +26,7 @@ class TrainingType extends AbstractType
 
     public function __construct(TokenStorageInterface $token)
     {
-       $this->token = $token;
+        $this->token = $token;
     }
 
     public function buildForm(FormBuilderInterface $builder, array $options)
@@ -42,13 +42,12 @@ class TrainingType extends AbstractType
                 'class' => Exercice::class,
                 'choice_label' => 'name',
                 'multiple' => true,
-              
-                
+
+
             ])
             ->add('is_realized', CheckboxType::class, [
                 'required' => false
-            ])
-        ;
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)
