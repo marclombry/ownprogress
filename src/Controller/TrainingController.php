@@ -21,7 +21,7 @@ class TrainingController extends AbstractController
      */
     public function index(): Response
     {
-        $trainings = $this->getUser()->getTraining()->getValues();
+        $trainings = $this->getUser()->getTraining();
         return $this->render('training/index.html.twig', [
             "trainings" => $trainings
         ]);
