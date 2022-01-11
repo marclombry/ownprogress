@@ -15,7 +15,7 @@ use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 
@@ -23,16 +23,20 @@ use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInt
 class TrainingType extends AbstractType
 {
     private $token;
+    private $repo;
 
-    public function __construct(TokenStorageInterface $token)
-    {
-       $this->token = $token;
+    public function __construct(
+        TokenStorageInterface $token,
+        ExerciceRepository $repo
+    ) {
+        $this->token = $token;
+        $this->repo = $repo;
     }
 
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $user = $this->token->getToken()->getUser();
-        // dd($user);
+
         $builder
             ->add('date_training', DateType::class, [
                 'required' => false,
@@ -41,14 +45,14 @@ class TrainingType extends AbstractType
             ->add('exercice', EntityType::class, [
                 'class' => Exercice::class,
                 'choice_label' => 'name',
+                'choices' => $this->repo->findExerciceByUserAuth($user->getId()),
                 'multiple' => true,
-              
-                
+
+
             ])
-            ->add('is_realized', ChoiceType::class, [
-                'required' => true
-            ])
-        ;
+            ->add('is_realized', CheckboxType::class, [
+                'required' => false
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)

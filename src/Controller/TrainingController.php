@@ -9,6 +9,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 /**
  * @Route("/training")
@@ -18,10 +19,11 @@ class TrainingController extends AbstractController
     /**
      * @Route("/", name="training_index", methods={"GET"})
      */
-    public function index(TrainingRepository $trainingRepository): Response
+    public function index(): Response
     {
+        $trainings = $this->getUser()->getTraining();
         return $this->render('training/index.html.twig', [
-            'trainings' => $trainingRepository->findAll(),
+            "trainings" => $trainings
         ]);
     }
 
@@ -54,6 +56,8 @@ class TrainingController extends AbstractController
      */
     public function show(Training $training): Response
     {
+        $this->denyAccessUnlessGranted('view', $training);
+
         return $this->render('training/show.html.twig', [
             'training' => $training,
         ]);
@@ -64,6 +68,8 @@ class TrainingController extends AbstractController
      */
     public function edit(Request $request, Training $training): Response
     {
+        $this->denyAccessUnlessGranted('view', $training);
+
         $form = $this->createForm(TrainingType::class, $training);
         $form->handleRequest($request);
 
@@ -84,7 +90,9 @@ class TrainingController extends AbstractController
      */
     public function delete(Request $request, Training $training): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$training->getId(), $request->request->get('_token'))) {
+        $this->denyAccessUnlessGranted('view', $training);
+
+        if ($this->isCsrfTokenValid('delete' . $training->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($training);
             $entityManager->flush();

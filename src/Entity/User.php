@@ -50,9 +50,15 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     private $training;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Exercice::class, mappedBy="user")
+     */
+    private $exercices;
+
     public function __construct()
     {
         $this->training = new ArrayCollection();
+        $this->exercices = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -189,5 +195,35 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function __toString()
     {
         return $this->email;
+    }
+
+    /**
+     * @return Collection|Exercice[]
+     */
+    public function getExercices(): Collection
+    {
+        return $this->exercices;
+    }
+
+    public function addExercice(Exercice $exercice): self
+    {
+        if (!$this->exercices->contains($exercice)) {
+            $this->exercices[] = $exercice;
+            $exercice->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeExercice(Exercice $exercice): self
+    {
+        if ($this->exercices->removeElement($exercice)) {
+            // set the owning side to null (unless already changed)
+            if ($exercice->getUser() === $this) {
+                $exercice->setUser(null);
+            }
+        }
+
+        return $this;
     }
 }
