@@ -50,6 +50,11 @@ class Exercice
      */
     private $trainings;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=user::class, inversedBy="exercices")
+     */
+    private $user;
+
     public function __construct()
     {
         $this->trainings = new ArrayCollection();
@@ -150,5 +155,17 @@ class Exercice
     public function __toString()
     {
         return $this->name;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
+
+        return $this;
     }
 }

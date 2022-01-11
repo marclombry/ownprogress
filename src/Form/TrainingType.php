@@ -32,7 +32,7 @@ class TrainingType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $user = $this->token->getToken()->getUser();
-        // dd($user);
+       
         $builder
             ->add('date_training', DateType::class, [
                 'required' => false,
