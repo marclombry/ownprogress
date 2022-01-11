@@ -22,19 +22,16 @@ class ExerciceRepository extends ServiceEntityRepository
     // /**
     //  * @return Exercice[] Returns an array of Exercice objects
     //  */
-    /*
-    public function findByExampleField($value)
+
+    public function findExerciceByUserAuth($value)
     {
         return $this->createQueryBuilder('e')
-            ->andWhere('e.exampleField = :val')
+            ->andWhere('e.user = :val')
             ->setParameter('val', $value)
             ->orderBy('e.id', 'ASC')
-            ->setMaxResults(10)
             ->getQuery()
-            ->getResult()
-        ;
+            ->getResult();
     }
-    */
 
     /*
     public function findOneBySomeField($value): ?Exercice

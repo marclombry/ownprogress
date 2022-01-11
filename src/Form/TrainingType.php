@@ -23,16 +23,20 @@ use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInt
 class TrainingType extends AbstractType
 {
     private $token;
+    private $repo;
 
-    public function __construct(TokenStorageInterface $token)
-    {
+    public function __construct(
+        TokenStorageInterface $token,
+        ExerciceRepository $repo
+    ) {
         $this->token = $token;
+        $this->repo = $repo;
     }
 
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $user = $this->token->getToken()->getUser();
-       
+
         $builder
             ->add('date_training', DateType::class, [
                 'required' => false,
@@ -41,6 +45,7 @@ class TrainingType extends AbstractType
             ->add('exercice', EntityType::class, [
                 'class' => Exercice::class,
                 'choice_label' => 'name',
+                'choices' => $this->repo->findExerciceByUserAuth($user->getId()),
                 'multiple' => true,
 
 
